@@ -22,6 +22,7 @@ func _process(delta):
 		$animatedSprite.play()
 	else:
 		$AnimatedSprite.stop()
+		
 	position += velocity * delta
 	position.x = clamp(position.x, 0, screen_size.x)
 	position.y = clamp(position.y, 0, screen_size.y)
@@ -31,3 +32,10 @@ func _process(delta):
 		$AnimatedSprite.flip_v = false
 		
 		$AnimatedSprite.flip_h = velocity .x <0
+	elif velocity . y !=0
+		$AnimatedSprite . animation = "right"
+		$AnimatedSptite . flip_v = velocity . y > 0
+		
+		
+		
+		
