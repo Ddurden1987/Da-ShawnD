@@ -36,6 +36,11 @@ func _process(delta):
 		$AnimatedSprite . animation = "right"
 		$AnimatedSptite . flip_v = velocity . y > 0
 		
+	if velocity . < 0 :
+		AnimatedSptite . flip_h = true
+	else:
+	    AnimatedSptite . flip_h = false
+		
 		
 		
 		
