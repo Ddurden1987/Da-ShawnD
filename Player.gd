@@ -6,41 +6,43 @@ var screen_size
 func _ready():
 	screen_size = get_viewport_rect().size
 func _process(delta):
-	position .x = clamp(position.x, 0, screen_size.x)
-	position .y =clamp(position.y, 0, screen_size.y)
+	position.x = clamp(position.x, 0, screen_size.x)
+	position.y =clamp(position.y, 0, screen_size.y)
 	var velocity = Vector2()
 	if Input.is_action_pressed("ui_right"):
-		velocity .x += 1 
-	if Input .is_action_pressed("ui_left"):
-		velocity .x -= 1
-	if Input .is_action_pressed("ui_down"):
-		velocity .y -= 1
-	if Input .is_action_pressed("ui_up"):
-		velocity .y -= 1
-	if velocity . length() > 0:
-		velocity = velocity .normalized() * speed
-		$animatedSprite.play()
+		velocity.x += 1 
+	if Input.is_action_pressed("ui_left"):
+		velocity.x -= 1
+	if Input.is_action_pressed("ui_down"):
+		velocity.y += 1
+	if Input.is_action_pressed("ui_up"):
+		velocity.y -= 1
+	if velocity.length() > 0:
+		velocity = velocity.normalized() * speed
+		$AnimatedSprite.play()
 	else:
 		$AnimatedSprite.stop()
 		
 	position += velocity * delta
-	position.x = clamp(position.x, 0, screen_size.x)
-	position.y = clamp(position.y, 0, screen_size.y)
+	position.x=clamp(position.x, 0, screen_size.x)
+	position.y=clamp(position.y, 0, screen_size.y)
 	
 	if velocity .x != 0:
-		$Animated.animation = "right"
-		$AnimatedSprite.flip_v = false
+		$AnimatedSprite.animation="right"
+		$AnimatedSprite.flip_v=false
 		
 		$AnimatedSprite.flip_h = velocity .x <0
-	elif velocity . y !=0
+	elif velocity.y !=0:
 		$AnimatedSprite . animation = "right"
-		$AnimatedSptite . flip_v = velocity . y > 0
+		$AnimatedSprite.flip_v = velocity . y > 0
 		
-	if velocity . < 0 :
-		AnimatedSptite . flip_h = true
+	if velocity.x < 0 :
+		$AnimatedSprite.flip_h = true
 	else:
-	    AnimatedSptite . flip_h = false
+	    $AnimatedSprite.flip_h = false
 		
-		
+	hide()
+	
+	
 		
 		
